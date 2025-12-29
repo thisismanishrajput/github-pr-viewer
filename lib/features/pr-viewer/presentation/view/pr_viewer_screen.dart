@@ -6,7 +6,9 @@ import 'package:github_pr_viewer/features/pr-viewer/presentation/widget/pr_card.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/pr_viewer_model.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../auth/presentation/bloc/auth_event.dart';
+
 
 class PullRequestScreen extends StatefulWidget {
   const PullRequestScreen({super.key});
@@ -25,7 +27,18 @@ class _PullRequestScreenState extends State<PullRequestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Open Pull Requests')),
+      appBar: AppBar(
+        title: const Text('Open Pull Requests'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: () {
+              context.read<AuthBloc>().add(LogoutRequested());
+            },
+          ),
+        ],
+      ),
       body: BlocBuilder<PrViewerBloc, PrViewerState>(
         builder: (context, state) {
           if (state.pullRequestStatus == StateUpdateStatus.updating) {
