@@ -19,7 +19,6 @@ class PullRequestCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// PR Title
             Text(
               pr.title ?? "N/A",
               style: const TextStyle(
@@ -30,7 +29,6 @@ class PullRequestCard extends StatelessWidget {
 
             const SizedBox(height: 8),
 
-            /// PR Body
             Text(
               pr.body?.isNotEmpty == true
                   ? pr.body!
@@ -45,7 +43,6 @@ class PullRequestCard extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            /// Footer
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
