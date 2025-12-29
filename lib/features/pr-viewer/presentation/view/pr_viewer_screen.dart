@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:github_pr_viewer/features/pr-viewer/presentation/bloc/pr_viewer_bloc.dart';
 import 'package:github_pr_viewer/features/pr-viewer/presentation/bloc/pr_viewer_event.dart';
 import 'package:github_pr_viewer/features/pr-viewer/presentation/bloc/pr_viewer_state.dart';
@@ -60,7 +61,9 @@ class _PullRequestScreenState extends State<PullRequestScreen> {
               padding: const EdgeInsets.all(16),
               itemCount: state.pulRequests.length,
               itemBuilder: (context, index) {
-                return PullRequestCard(pr: state.pulRequests[index]);
+                return FadeInLeft(
+                  delay: Duration(milliseconds: index*50),
+                    child: PullRequestCard(pr: state.pulRequests[index]));
               },
             ),
           );
