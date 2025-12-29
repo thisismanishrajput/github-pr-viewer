@@ -1,7 +1,6 @@
 
 class APIEndPoints {
   static String baseUrl = "https://api.github.com/repos/";
-
   // receiveTimeout
   static const int receiveTimeout = 15000;
 
