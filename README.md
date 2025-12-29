@@ -12,6 +12,12 @@ This project was built as part of a Flutter hiring assignment. The goal is to fe
 
 ---
 
+## 📹 Demo Video
+
+🎥 Watch the app demo here:  
+https://github.com/thisismanishrajput/github-pr-viewer/blob/main/pr_viewer_recording.mp4
+
+
 ## 🎯 Features
 
 ### ✅ Core Functionality
