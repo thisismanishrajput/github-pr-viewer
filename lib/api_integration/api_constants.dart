@@ -11,5 +11,5 @@ class APIEndPoints {
   // connectTimeout
   static const int sendTimeOut = 30000;
 
-  static String prSlug = '';
+  static String prSlug = 'thisismanishrajput/github-pr-viewer/pulls';
 }
