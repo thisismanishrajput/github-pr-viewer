@@ -1,8 +1,11 @@
-import 'package:github_pr_viewer/features/pr-viewer/presentation/bloc/pr_viewer_bloc.dart';
-import 'package:github_pr_viewer/services/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'features/pr-viewer/presentation/view/pr_viewer_screen.dart';
+
+import 'app_entry_point.dart';
+import 'services/service_locator.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/auth/presentation/bloc/auth_event.dart';
+import 'features/pr-viewer/presentation/bloc/pr_viewer_bloc.dart';
 
 void main() {
   init();
@@ -14,19 +17,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-        title: 'GITHUB PR-Viewer',
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_)=> serviceLocator<AuthBloc>()..add(CheckLoginStatus())),
+        BlocProvider(create: (_)=> PrViewerBloc()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'GitHub PR Viewer',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme:
+          ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: BlocProvider(
-          create: (context) => PrViewerBloc(),
-          child: PullRequestScreen(),
-        )
+        home:  AppEntryPoint(),
+      ),
     );
   }
 }
-
-

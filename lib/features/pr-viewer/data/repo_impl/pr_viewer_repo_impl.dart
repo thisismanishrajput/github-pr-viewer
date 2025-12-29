@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:github_pr_viewer/utility/result.dart';
 
 import '../../../../api_integration/api_constants.dart';
@@ -17,8 +16,7 @@ class PrViewerRepoImpl extends PrViewerRepo {
 
     // First check if it's a Failure, then cast to access message
     if (result is Failure) {
-      log("result.message: ${(result as Failure).message}");
-      return Failure((result as Failure).message);
+      return Failure((result).message);
     }
 
     final data = (result as Success).data;
