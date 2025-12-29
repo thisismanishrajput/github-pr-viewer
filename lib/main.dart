@@ -3,16 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'app_entry_point.dart';
 import 'services/service_locator.dart';
-
-// Auth
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/bloc/auth_event.dart';
-
-// PR Viewer
 import 'features/pr-viewer/presentation/bloc/pr_viewer_bloc.dart';
 
 void main() {
-  init(); // service locator init
+  init();
   runApp(const MyApp());
 }
 
