@@ -94,6 +94,7 @@ class PullRequestDetailsScreen extends StatelessWidget {
               ),
             ),
           ],
+
         ),
       ),
     );
